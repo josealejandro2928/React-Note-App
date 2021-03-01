@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import './AdminLayout.css';
+import './AdminLayout.scss';
 
 class AdminLayout extends Component {
   state = {};
   render() {
-    return <h2>Hola Mundo</h2>;
+    return (
+      <div className='AdminLayout'>
+        <h2>Hola Mundo</h2>;
+      </div>
+    );
   }
 }
 

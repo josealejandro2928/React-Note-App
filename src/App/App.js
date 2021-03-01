@@ -1,6 +1,7 @@
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AdminLayout from '../Layout/AdminLayout/AdminLayout';
+import Login from '../Auth/Login/Login';
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
         <Route exact path='/'>
           <AdminLayout />
         </Route>
-        <Route path='/auth'></Route>
+        <Route path='/auth'>
+          <Login></Login>
+        </Route>
       </Switch>
     </Router>
   );

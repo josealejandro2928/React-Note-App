@@ -1,20 +1,20 @@
 import './App.scss';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import AdminLayout from '../Layout/AdminLayout/AdminLayout';
-import Login from '../Auth/Login/Login';
+import Note from '../components/Note/Note';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/'>
-          <AdminLayout />
-        </Route>
-        <Route path='/auth'>
-          <Login></Login>
-        </Route>
-      </Switch>
-    </Router>
+    <div className='App'>
+      <div className='layout-btn'>
+        <button className='add-btn' id='add'>
+          <i className='fas fa-plus'></i>
+          Add note
+        </button>
+      </div>
+
+      <div className='container-notes'>
+        <Note></Note>
+      </div>
+    </div>
   );
 }
 

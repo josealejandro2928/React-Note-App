@@ -1,5 +1,69 @@
 .Note {
-    .note{
-        
+    background-color: #fff;
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, .1);
+    margin: 30px 20px;
+    height: auto;
+    max-width: 400px;
+    width: 400px;
+    border-radius: 4px;
+
+    .tools {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: .5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        background-color: #4caf50;
+
+        button {
+            background-color: transparent;
+            color: #fff;
+            margin-left: .5rem;
+            border: none;
+            cursor: pointer;
+            opacity: .8;
+
+            &:active {
+                transform: scale(.9);
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+        }
+    }
+
+    textarea {
+        outline: none;
+        font-family: inherit;
+        font-size: 1.2rem;
+        border: none;
+        min-height: 380px;
+        width: 100%;
+        padding: 20px;
+        resize: vertical;
+    }
+
+    .text {
+        resize: vertical;
+        min-height: 340px;
+        padding: 20px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @media only screen and (max-width:599px) {
+        margin: 16px 0px;
+        width: 100%;
+        height: 300px;
+    }
+
+    .active {
+        font-size: 24px;
+        opacity: 1 !important;
     }
 }

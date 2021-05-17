@@ -3,7 +3,7 @@ import Note from '../components/Note/Note';
 import React, { useState, useEffect, useRef } from 'react';
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  let [notes, setNotes] = useState([]);
 
   const containerRef = useRef();
   const elementRef = containerRef.current;
@@ -18,6 +18,7 @@ function App() {
   return (
     <div className='App' ref={containerRef}>
       <div className='layout-btn'>
+        <a href="https://www.markdownguide.org/basic-syntax/" target="_blamk  ">See more about markdown here</a>
         <button onClick={onAddNote.bind(this)} className='add-btn' id='add'>
           <i className='fas fa-plus'></i>
           Add note
@@ -30,7 +31,7 @@ function App() {
             <Note
               key={note.id}
               note={note}
-              deleteNote={() => onDeleteNote(index)}
+              deleteNote={($event) => onDeleteNote($event)}
               toggleEditing={(note) => onToggleEditing(note, index)}
               changeText={(note, text) => onChangeText(note, text, index)}
             ></Note>
@@ -40,22 +41,29 @@ function App() {
     </div>
   );
 
-  function onDeleteNote(index) {
-    notes.splice(index, 1);
-    saveData(notes);
+  function onDeleteNote(note) {
+    // console.log('🚀 ~ file: App.js ~ line 44 ~ onDeleteNote ~ note', note);
+    let noteEl = document.querySelector(`#note-${note.id}`);
+    noteEl.classList.add('hide');
+    let c = setTimeout(() => {
+      notes = notes.filter((n) => n.id !== note.id);
+      saveData(notes);
+      clearTimeout(c);
+    }, 500);
   }
 
   function onAddNote() {
     let newNote = { id: Date.now(), text: '', isEditing: true };
     notes.push(newNote);
     saveData(notes);
-    setTimeout(() => {
+    let c = setTimeout(() => {
       let noteTag = elementRef.querySelector(`#note-${newNote.id} textarea`);
       noteTag.focus();
+      clearTimeout(c);
     }, 150);
   }
 
-  function onChangeText(note,text, index) {
+  function onChangeText(note, text, index) {
     note.text = text;
     notes[index] = note;
     saveData([...notes]);

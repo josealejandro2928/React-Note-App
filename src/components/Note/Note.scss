@@ -5,7 +5,14 @@
     height: auto;
     max-width: 400px;
     width: 400px;
-    border-radius: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .5s ease;
+
+    &:hover {
+        transition: all .5s ease;
+        box-shadow: 0 0 10px 5px rgba(0, 0, 0, .3);
+    }
 
     .tools {
         border-top-left-radius: 4px;
@@ -38,7 +45,7 @@
     textarea {
         outline: none;
         font-family: inherit;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         border: none;
         min-height: 380px;
         width: 100%;
@@ -65,5 +72,49 @@
     .active {
         font-size: 24px;
         opacity: 1 !important;
+    }
+}
+
+.Note.show {
+    animation-name: show;
+    animation-duration: .5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+}
+
+.Note.hide {
+    animation-name: hide;
+    animation-duration: .5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+}
+.delete-btn:hover{
+    transform: scale(1.2);
+    
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+        filter: blur(0px);
+    }
+
+    100% {
+        opacity: 0;
+        filter: blur(100px);
+        transform: translateY(100%);
     }
 }

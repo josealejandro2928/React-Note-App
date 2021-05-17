@@ -25,7 +25,7 @@ function Note(props) {
   }
 
   return (
-    <div id={'note-' + note.id} className='Note'>
+    <div id={'note-' + note.id} className='Note show'>
       <div className='tools'>
         <button
           onClick={() => {
@@ -35,7 +35,7 @@ function Note(props) {
         >
           <i className='fas fa-edit'></i>
         </button>
-        <button
+        <button className="delete-btn"
           onClick={() => {
             props.deleteNote(note);
           }}

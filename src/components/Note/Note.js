@@ -16,16 +16,10 @@ function Note(props) {
     );
   } else {
     tagSection = (
-      // <div
-      //   className='text'
-      //   dangerouslySetInnerHTML={{ __html: note.text }}
-      // ></div>
       <div className='text'>
         <div className='markdown-body'>
           <ReactMarkdown>{note.text}</ReactMarkdown>
         </div>
-
-        {/* <ReactMarkdown># Hello, *world*!</ReactMarkdown> */}
       </div>
     );
   }
